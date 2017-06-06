@@ -59,7 +59,7 @@ end
 
 pid_file_dir = ::File.dirname(node['mumble_server']['pid_file'])
 directory pid_file_dir do
-  owner 'root'
+  owner node['mumble_server']['user']
   group node['mumble_server']['group']
   mode '00755'
   not_if { ::File.exist?(pid_file_dir) }
